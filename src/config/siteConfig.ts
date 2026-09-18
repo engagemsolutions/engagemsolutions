@@ -410,7 +410,7 @@ export const siteConfig = {
       title: "The Swiss Gold",
       client: "The Swiss Gold International",
       category: "Jewellery",
-      image: "https://images.unsplash.com/photo-1611591475881-c05bc2f2cbca?w=800&auto=format&fit=crop&q=80",
+      image: "/images/swissgold.jpg",
       description: "Elevating a premier Swiss bullion and precious metals brand with an international digital experience, multi-currency live pricing charts, and ultra-secure investor onboarding.",
       highlights: ["Luxury UI/UX Design", "Live Bullion API Integration", "Global Investor Acquisition"],
       metrics: [
