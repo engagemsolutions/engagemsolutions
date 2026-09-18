@@ -1,6 +1,6 @@
 'use client';
 
-import Image from 'next/image';
+
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { Award, Target, Users, Sparkles, MapPin, CheckCircle2, ArrowRight, ShieldCheck, HeartHandshake } from 'lucide-react';
@@ -53,19 +53,26 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Story & Image Section */}
+      {/* Story & Video Section */}
       <section className="py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             <div className="lg:col-span-6">
               <div className="relative h-[460px] rounded-3xl overflow-hidden glass-card border border-slate-700 shadow-2xl">
-                <Image
-                  src="/images/about-hourglass.jpg"
-                  alt="Engage Marketing Agency Dubai"
-                  fill
-                  className="object-cover"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#1A1A1A] via-transparent to-transparent opacity-60" />
+                <video
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                  disablePictureInPicture
+                  disableRemotePlayback
+                  preload="auto"
+                  aria-label="Where Human Ingenuity Meets Cutting-Edge Intelligence"
+                  className="h-full w-full object-cover pointer-events-none"
+                >
+                  <source src="/videos/about-ingenuity.mp4" type="video/mp4" />
+                  Your browser does not support embedded video.
+                </video>
               </div>
             </div>
 

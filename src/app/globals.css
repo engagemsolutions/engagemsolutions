@@ -268,6 +268,3 @@ a.bg-brand-400:hover,button.bg-brand-400:hover { background: #a6482a; }
 .site-shell .editorial-header { background: rgb(20 20 20 / 45%); }
 .site-shell .editorial-footer { background: rgb(20 20 20 / 38%); }
 .site-shell .glass-card,.site-shell .editorial-metric,.site-shell .complementary-card { background: rgb(26 26 26 / 66%); }
-.background-playback { position: fixed; bottom: 20px; left: 20px; z-index: 40; display: flex; align-items: center; gap: 8px; padding: 10px 13px; border: 1px solid #ffffff40; border-radius: 4px; background: #151515c9; color: #f4f0e8; font-size: 10px; backdrop-filter: blur(8px); }
-.background-playback:hover { border-color: var(--cyan); color: var(--cyan); }
-@media(max-width:767px) { .background-playback { left: 12px; bottom: 14px; padding: 10px; } .background-playback span { display: none; } }

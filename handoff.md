@@ -55,3 +55,12 @@ To run manually:
 - SiteBackground mounts once in AppShell: muted looping inline playback, fixed cover positioning, 48% readability overlay, and pause/play control. Reduced-motion preferences disable automatic playback.
 - Removed solid route and section backgrounds. Header, footer, and cards use translucent surfaces over the video.
 - Verified visible video playback on the homepage, pause/resume interaction, and continued playback after navigating to Brand Management. TypeScript validation passed.
+
+## About Us video update — September 19, 2026
+- Replaced the picture beside 'Where Human Ingenuity Meets Cutting-Edge Intelligence' with the supplied public/videos/about-ingenuity.mp4 video.
+- Muted looping inline playback with native controls; respects reduced-motion preference. Verified in the browser and TypeScript check passed. Included in the subsequent video update commit.
+
+
+## Continuous video playback update
+- Both background and About Us videos now use native muted autoplay, inline playback, and looping, without player controls or the floating background toggle, as explicitly requested.
+- Removed the prior reduced-motion playback gate; both videos verified playing in-browser with controls disabled. TypeScript validation passed. Prepared for GitHub synchronization.
