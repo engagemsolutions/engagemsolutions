@@ -8,7 +8,7 @@ import { siteConfig } from '@/config/siteConfig';
 
 export default function AboutTeaser() {
   return (
-    <section className="py-24 bg-[#070A13] relative overflow-hidden" id="about">
+    <section className="py-24 bg-transparent relative overflow-hidden" id="about">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
           {/* Left Column: Image with Glass Frame & Badges */}
@@ -26,7 +26,7 @@ export default function AboutTeaser() {
                 fill
                 className="object-cover transition-transform duration-700 group-hover:scale-105"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#080C15] via-transparent to-transparent opacity-60" />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#1A1A1A] via-transparent to-transparent opacity-60" />
             </div>
 
             {/* Floating Achievement Badge */}

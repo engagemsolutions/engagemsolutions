@@ -16,14 +16,15 @@ const config: Config = {
       },
     },
     extend: {
+      fontFamily: { sans: ['var(--font-inter)', 'Arial', 'sans-serif'], serif: ['var(--font-editorial)', 'Georgia', 'serif'] },
       colors: {
         brand: {
           50: '#effefd',
           100: '#c7fdfe',
           200: '#90fafe',
           300: '#4ff1fa',
-          400: '#17dfec',
-          500: '#00c4d6',
+          400: '#00FFFF',
+          500: '#00CCCC',
           600: '#009cb3',
           700: '#057b8f',
           800: '#0c6374',
@@ -31,11 +32,11 @@ const config: Config = {
           950: '#033340',
         },
         dark: {
-          DEFAULT: '#080C15',
-          surface: '#0F1626',
-          card: '#141E34',
-          border: '#1F2C4B',
-          hover: '#1B2744',
+          DEFAULT: '#1A1A1A',
+          surface: '#262626',
+          card: '#30302E',
+          border: '#40403C',
+          hover: '#333330',
         },
         gold: {
           DEFAULT: '#D4AF37',

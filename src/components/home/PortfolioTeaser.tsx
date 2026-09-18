@@ -8,7 +8,7 @@ import { siteConfig } from '@/config/siteConfig';
 
 export default function PortfolioTeaser() {
   return (
-    <section className="py-24 bg-[#080C15] relative overflow-hidden" id="work">
+    <section className="py-24 bg-transparent relative overflow-hidden" id="work">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-16">
           <div>
@@ -53,7 +53,7 @@ export default function PortfolioTeaser() {
                   fill
                   className="object-cover transition-transform duration-700 group-hover:scale-105"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#0E1424] via-[#0E1424]/40 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#262626] via-[#262626]/40 to-transparent" />
 
                 {/* Category badge */}
                 <div className="absolute top-4 left-4">

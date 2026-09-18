@@ -17,8 +17,8 @@ export default function ConsultBanner() {
           className="object-cover object-center scale-105"
         />
         {/* Dark overlays to maintain exact screenshot aesthetic */}
-        <div className="absolute inset-0 bg-[#080C15]/70 backdrop-blur-[2px]" />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#080C15] via-transparent to-[#080C15]" />
+        <div className="absolute inset-0 bg-[#1A1A1A]/70 backdrop-blur-[2px]" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#1A1A1A] via-transparent to-[#1A1A1A]" />
       </div>
 
       {/* Giant Typography matching screenshot */}

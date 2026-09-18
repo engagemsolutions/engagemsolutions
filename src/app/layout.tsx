@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { Inter, Plus_Jakarta_Sans } from 'next/font/google';
+import { Inter, DM_Serif_Display } from 'next/font/google';
 import './globals.css';
 import AppShell from '@/components/layout/AppShell';
 import { siteConfig } from '@/config/siteConfig';
@@ -10,9 +10,10 @@ const inter = Inter({
   display: 'swap',
 });
 
-const jakarta = Plus_Jakarta_Sans({
+const serif = DM_Serif_Display({
+  weight: '400',
   subsets: ['latin'],
-  variable: '--font-jakarta',
+  variable: '--font-editorial',
   display: 'swap',
 });
 
@@ -62,8 +63,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${inter.variable} ${jakarta.variable} dark scroll-smooth`}>
-      <body className="antialiased font-sans bg-[#080C15] text-slate-100 selection:bg-brand-500 selection:text-dark-surface">
+    <html lang="en" className={`${inter.variable} ${serif.variable} dark scroll-smooth`}>
+      <body className="antialiased font-sans bg-[#1A1A1A] text-slate-100 selection:bg-brand-500 selection:text-dark-surface">
         <AppShell>{children}</AppShell>
       </body>
     </html>

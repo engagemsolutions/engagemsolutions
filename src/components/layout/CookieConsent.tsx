@@ -33,7 +33,7 @@ export default function CookieConsent() {
           exit={{ opacity: 0, y: 50 }}
           transition={{ duration: 0.35 }}
           aria-label="Cookie Consent Banner"
-          className="fixed bottom-0 left-0 right-0 z-50 bg-[#0c1220]/95 backdrop-blur-md border-t border-slate-700/80 px-4 py-3 shadow-2xl"
+          className="fixed bottom-0 left-0 right-0 z-50 bg-[#262626]/95 backdrop-blur-md border-t border-slate-700/80 px-4 py-3 shadow-2xl"
         >
           <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-3 text-xs sm:text-sm text-slate-300">
             <p className="text-center sm:text-left">

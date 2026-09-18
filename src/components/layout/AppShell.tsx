@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import Navbar from './Navbar';
 import Footer from './Footer';
+import SiteBackground from './SiteBackground';
 import CookieConsent from './CookieConsent';
 import WhatsAppButton from '@/components/ui/WhatsAppButton';
 import ScrollToTop from '@/components/ui/ScrollToTop';
@@ -14,7 +15,8 @@ export default function AppShell({ children }: { children: React.ReactNode }) {
 
   return (
     <SmoothScroll>
-      <div className="min-h-screen flex flex-col bg-[#080C15] text-[#F8FAFC]">
+      <div className="site-shell min-h-screen flex flex-col text-[#F4F0E8]">
+        <SiteBackground />
         <Navbar onOpenAIConsultant={() => setIsAIConsultantOpen(true)} />
         <main className="flex-1">
           {children}

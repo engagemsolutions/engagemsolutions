@@ -227,11 +227,12 @@ export const siteConfig = {
         "Comprehensive 80+ Page Brand Identity Playbook",
         "Vector Brand Assets, Typography & Iconography Libraries",
         "Stationery, Presentation Decks, & Social Media Kits",
+        "Brand Governance and Collateral Design",
         "Brand Rollout Strategy & Launch Campaign"
       ],
       stats: [
-        { value: "100%", label: "Custom Strategic Differentiation" },
-        { value: "10+ Yrs", label: "Brand Equity Longevity" },
+        { value: "100%", label: "Brand Equity Growth" },
+        { value: "10+ Yrs", label: "Agency Leadership" },
       ]
     },
     {

@@ -1,196 +1,38 @@
-'use client';
-
-import { useState } from 'react';
 import Link from 'next/link';
-import { motion } from 'framer-motion';
-import {
-  Bot,
-  TrendingUp,
-  ShoppingBag,
-  ShieldCheck,
-  Megaphone,
-  Sparkles,
-  Printer,
-  CalendarDays,
-  HeartHandshake,
-  Briefcase,
-  ArrowRight,
-  CheckCircle2,
-  Phone,
-  MessageSquare,
-  Zap,
-} from 'lucide-react';
+import { ArrowUpRight, Check } from 'lucide-react';
 import { siteConfig, ServiceItem } from '@/config/siteConfig';
-
-const iconMap: Record<string, any> = {
-  Bot,
-  TrendingUp,
-  ShoppingBag,
-  ShieldCheck,
-  Megaphone,
-  Sparkles,
-  Printer,
-  CalendarDays,
-  HeartHandshake,
-  Briefcase,
-};
-
+import Illustration from '@/components/ui/Illustration';
+const brandDisciplines = [
+  ['Strategic Positioning', 'Research, market context, and a clear point of difference. A meaningful foundation for everything that follows.', 'compass'],
+  ['Visual Identity', 'Distinctive logos, considered colour palettes, and typography that make your brand unmistakably yours.', 'identity'],
+  ['Brand Voice', 'A consistent language for your story. From the first introduction to the conversations that build trust.', 'voice'],
+  ['Corporate Design', 'Beautifully connected touchpoints, from stationery and presentations to your everyday communications.', 'network'],
+  ['Brand Governance', 'Practical guidelines and asset libraries that keep every expression of your brand aligned.', 'chart'],
+  ['Executive Branding', 'An authentic personal presence for founders and leaders, built around their expertise and ambition.', 'document'],
+];
 export default function ServiceDetailView({ service }: { service: ServiceItem }) {
-  const IconComponent = iconMap[service.iconName] || Bot;
-  const otherServices = siteConfig.services.filter((s) => s.id !== service.id).slice(0, 3);
-
-  return (
-    <div className="pt-28 pb-24 bg-[#080C15] text-slate-100 min-h-screen">
-      {/* Hero */}
-      <section className="relative py-16 overflow-hidden border-b border-slate-800/80">
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-3/4 h-80 bg-brand-500/10 blur-3xl pointer-events-none" />
-
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          {/* Breadcrumb */}
-          <div className="flex items-center gap-2 text-xs text-slate-400 mb-8">
-            <Link href="/" className="hover:text-white transition-colors">Home</Link>
-            <span>/</span>
-            <Link href="/services" className="hover:text-white transition-colors">Services</Link>
-            <span>/</span>
-            <span className="text-brand-400 font-medium">{service.title}</span>
-          </div>
-
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-            <div className="lg:col-span-8">
-              <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-brand-500/10 border border-brand-500/30 text-brand-300 text-xs font-semibold mb-4">
-                <IconComponent size={14} className="text-brand-400" />
-                <span>Specialized Agency Practice</span>
-              </div>
-
-              <h1 className="text-4xl sm:text-6xl font-extrabold text-white tracking-tight mb-6 leading-tight">
-                {service.title}
-              </h1>
-
-              <p className="text-lg sm:text-2xl font-medium text-brand-300 mb-6 leading-relaxed">
-                {service.tagline}
-              </p>
-
-              <p className="text-base text-slate-300 leading-relaxed max-w-3xl mb-8">
-                {service.fullDescription}
-              </p>
-
-              <div className="flex flex-wrap items-center gap-4">
-                <Link
-                  href="/contact"
-                  className="px-8 py-3.5 rounded-full bg-brand-400 hover:bg-brand-300 text-dark-surface font-extrabold text-xs uppercase tracking-wider shadow-glow-cyan hover:scale-105 transition-all"
-                >
-                  Request Proposal for {service.title}
-                </Link>
-                <a
-                  href={siteConfig.company.whatsappUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-slate-900 border border-slate-700 text-slate-200 hover:text-white text-xs font-bold uppercase tracking-wider transition-colors"
-                >
-                  <Phone size={14} className="text-brand-400" />
-                  <span>WhatsApp Inquiries</span>
-                </a>
-              </div>
-            </div>
-
-            {/* Benchmarks Card */}
-            <div className="lg:col-span-4">
-              <div className="p-8 rounded-3xl glass-card border border-slate-700 shadow-2xl space-y-6">
-                <h3 className="text-base font-bold text-white uppercase tracking-wider flex items-center gap-2">
-                  <Zap size={18} className="text-brand-400" />
-                  Performance Metrics
-                </h3>
-
-                <div className="grid grid-cols-1 gap-4">
-                  {(service.stats || [
-                    { value: "100%", label: "Satisfaction Guarantee" },
-                    { value: "GCC", label: "Regional Coverage" },
-                  ]).map((st, i) => (
-                    <div key={i} className="p-4 rounded-2xl bg-slate-900/80 border border-slate-800">
-                      <span className="block text-3xl font-black text-brand-400">{st.value}</span>
-                      <span className="block text-xs text-slate-400 mt-1">{st.label}</span>
-                    </div>
-                  ))}
-                </div>
-
-                <div className="p-4 rounded-2xl bg-brand-950/30 border border-brand-500/20 text-xs text-slate-300 leading-relaxed">
-                  Engineered and managed from our Dubai Headquarters with nationwide UAE delivery.
-                </div>
-              </div>
-            </div>
-          </div>
+  const isBrand = service.id === 'brand-management';
+  const disciplines = isBrand ? brandDisciplines : service.features.map((feature, i) => [feature, '', ['compass', 'identity', 'voice', 'network', 'chart', 'document'][i % 6]]);
+  const others = siteConfig.services.filter(s => s.id !== service.id).slice(0, 3);
+  return <div className="service-page" id="top">
+    <section className="service-hero editorial-container">
+      <div className="breadcrumb"><Link href="/">Home</Link><span>/</span><Link href="/services">Services</Link><span>/</span><span>{service.title}</span></div>
+      <div className="service-hero-grid">
+        <div><p className="eyebrow"><span className="small-star">✳</span> Specialized agency practice <span className="edition">ENGAGE / {String(siteConfig.services.indexOf(service) + 1).padStart(2, '0')}</span></p>
+          <h1>{isBrand ? <>Bespoke Brand<br/><em>Management.</em></> : service.title}</h1>
+          <p className="service-tagline">{isBrand ? 'Forging Authenticity and Enduring Equity' : service.tagline}</p>
+          <p className="service-intro">{isBrand ? 'More than a visual identity. A distinctive presence, a clear purpose, and a brand your audience believes in.' : service.fullDescription}</p>
+          <div className="editorial-actions"><Link className="button-primary" href="/contact">{isBrand ? 'Inquire for Brand Deep-Dive' : 'Discuss your project'}<ArrowUpRight size={17}/></Link><Link className="button-outline" href="/work">Case Study Portfolio <ArrowUpRight size={17}/></Link></div>
         </div>
-      </section>
-
-      {/* Features & Deliverables Detailed Breakdown */}
-      <section className="py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-            {/* Features */}
-            <div className="p-8 sm:p-10 rounded-3xl glass-card border border-slate-800">
-              <h2 className="text-2xl font-bold text-white mb-6 flex items-center gap-2">
-                <Sparkles size={22} className="text-brand-400" />
-                Strategic Capabilities
-              </h2>
-              <ul className="space-y-4">
-                {service.features.map((feat, idx) => (
-                  <li key={idx} className="flex items-start gap-3 text-sm text-slate-300 leading-relaxed">
-                    <CheckCircle2 size={18} className="text-brand-400 shrink-0 mt-0.5" />
-                    <span>{feat}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            {/* Deliverables */}
-            <div className="p-8 sm:p-10 rounded-3xl glass-card border border-slate-800">
-              <h2 className="text-2xl font-bold text-white mb-6 flex items-center gap-2">
-                <ShieldCheck size={22} className="text-brand-400" />
-                What We Deliver
-              </h2>
-              <ul className="space-y-4">
-                {service.deliverables.map((del, idx) => (
-                  <li key={idx} className="flex items-start gap-3 text-sm text-slate-300 leading-relaxed">
-                    <div className="w-6 h-6 rounded-full bg-brand-500/15 border border-brand-500/30 text-brand-400 flex items-center justify-center text-xs font-bold shrink-0 mt-0.5">
-                      {idx + 1}
-                    </div>
-                    <span>{del}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Related Services */}
-      <section className="py-16 bg-[#060A13] border-t border-slate-800">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-2xl font-bold text-white mb-8">Complementary Agency Services</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {otherServices.map((other) => {
-              const OtherIcon = iconMap[other.iconName] || Bot;
-              return (
-                <Link
-                  key={other.id}
-                  href={`/services/${other.slug}`}
-                  className="p-6 rounded-2xl glass-card border border-slate-800 hover:border-brand-500/40 transition-all group"
-                >
-                  <div className="w-10 h-10 rounded-xl bg-brand-500/10 text-brand-400 flex items-center justify-center mb-4 group-hover:bg-brand-500 group-hover:text-dark-surface transition-colors">
-                    <OtherIcon size={20} />
-                  </div>
-                  <h4 className="text-base font-bold text-white group-hover:text-brand-300 transition-colors mb-2">
-                    {other.title}
-                  </h4>
-                  <p className="text-xs text-slate-400 line-clamp-2 leading-relaxed">
-                    {other.shortDescription}
-                  </p>
-                </Link>
-              );
-            })}
-          </div>
-        </div>
-      </section>
-    </div>
-  );
+        <aside className="metric-column"><p className="eyebrow">✧ &nbsp; Performance metrics</p>{(service.stats || siteConfig.company.stats.slice(0, 2)).map((stat, i) => <div className="editorial-metric" key={stat.label}><span className="metric-index">0{i + 1} /</span><strong>{stat.value}</strong><p>{stat.label}</p>{isBrand && i === 0 && <small>(Curated Project Average)</small>}</div>)}<p className="metric-footnote">Rooted in Dubai. Built for lasting impact.</p></aside>
+      </div>
+    </section>
+    <section className="discipline-section"><div className="editorial-container">
+      <div className="discipline-layout"><div><div className="section-kicker">01 / The craft</div><h2>Core Disciplines</h2><div className="discipline-grid">{disciplines.map(([title, description, icon], i) => <article className="discipline" key={title}><div className="discipline-icon"><Illustration kind={icon}/><span>0{i + 1}</span></div><h3>{title}</h3>{description && <p>{description}</p>}</article>)}</div></div>
+        <aside className="deliverables"><div className="section-kicker">02 / The outcome</div><h2>What We Deliver</h2><ul>{service.deliverables.map(del => <li key={del}><span className="delivery-check"><Check size={12}/></span>{del}</li>)}</ul><div className="brand-art" aria-hidden="true"><span className="art-orbit orbit-one"/><span className="art-orbit orbit-two"/><span className="art-orbit orbit-three"/><span className="art-caption">Distinct by design.<br/><i>Enduring by nature.</i></span><span className="art-mark">e.</span></div></aside>
+      </div>
+      <div className="related-heading"><div><div className="section-kicker">03 / Better together</div><h2>Complementary Services</h2></div><Link href="/services">Explore all services <ArrowUpRight size={16}/></Link></div>
+      <div className="complementary-grid">{others.map((other, i) => <Link className="complementary-card" href={`/services/${other.slug}`} key={other.id}><div className="complementary-art"><span>0{i + 1} /</span><Illustration kind={other.iconName}/><ArrowUpRight size={20}/></div><div className="complementary-copy"><h3>{other.id === 'ai-agents' ? 'AI Agents' : other.title}</h3><p>{other.shortDescription}</p><span className="text-link">Discover the practice <ArrowUpRight size={15}/></span></div></Link>)}</div>
+    </div></section>
+  </div>;
 }
