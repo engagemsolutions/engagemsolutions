@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
+import Illustration from '@/components/ui/Illustration';
 import { motion } from 'framer-motion';
 import {
   Bot,
@@ -56,7 +57,7 @@ export default function ServicesHubPage() {
   };
 
   return (
-    <div className="pt-28 pb-24 bg-[#080C15] text-slate-100 min-h-screen">
+    <div className="pt-28 pb-24 bg-transparent text-slate-100 min-h-screen">
       {/* Header */}
       <section className="relative py-16 overflow-hidden">
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-3/4 h-80 bg-brand-500/10 blur-3xl pointer-events-none" />
@@ -113,7 +114,7 @@ export default function ServicesHubPage() {
                   <div>
                     <div className="flex items-center justify-between mb-6">
                       <div className="w-14 h-14 rounded-2xl bg-brand-500/10 border border-brand-500/30 flex items-center justify-center text-brand-400 group-hover:bg-brand-500 group-hover:text-dark-surface transition-colors shadow-glow-cyan">
-                        <IconComponent size={28} />
+                        <Illustration kind={service.iconName} className="w-12 h-12" />
                       </div>
                       {service.featured && (
                         <span className="text-[10px] uppercase font-bold tracking-wider px-2.5 py-1 rounded-full bg-brand-500/20 text-brand-300 border border-brand-500/40">

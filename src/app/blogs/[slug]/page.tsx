@@ -20,7 +20,7 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
   const relatedBlogs = siteConfig.blogs.filter((b) => b.slug !== blog.slug).slice(0, 2);
 
   return (
-    <article className="pt-28 pb-24 bg-[#080C15] text-slate-100 min-h-screen">
+    <article className="pt-28 pb-24 bg-transparent text-slate-100 min-h-screen">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Back link */}
         <Link

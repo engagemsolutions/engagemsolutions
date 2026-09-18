@@ -11,7 +11,7 @@ export default function BlogsPage() {
   const regularBlogs = siteConfig.blogs.slice(1);
 
   return (
-    <div className="pt-28 pb-24 bg-[#080C15] text-slate-100 min-h-screen">
+    <div className="pt-28 pb-24 bg-transparent text-slate-100 min-h-screen">
       {/* Header */}
       <section className="relative py-16 overflow-hidden">
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-3/4 h-80 bg-brand-500/10 blur-3xl pointer-events-none" />

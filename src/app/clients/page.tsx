@@ -29,7 +29,7 @@ export default function ClientsPage() {
   ];
 
   return (
-    <div className="pt-28 pb-24 bg-[#080C15] text-slate-100 min-h-screen">
+    <div className="pt-28 pb-24 bg-transparent text-slate-100 min-h-screen">
       {/* Header */}
       <section className="relative py-16 overflow-hidden">
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-3/4 h-80 bg-brand-500/10 blur-3xl pointer-events-none" />
@@ -91,7 +91,7 @@ export default function ClientsPage() {
       </section>
 
       {/* Client Testimonials */}
-      <section className="py-16 bg-[#060912] border-y border-slate-800">
+      <section className="py-16 bg-transparent border-y border-slate-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-12">
             <span className="text-xs uppercase tracking-widest font-bold text-brand-400">Executive Testimonials</span>

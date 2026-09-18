@@ -17,7 +17,7 @@ export default function WorkPage() {
     : siteConfig.portfolio.filter((p) => p.category === selectedCategory);
 
   return (
-    <div className="pt-28 pb-24 bg-[#080C15] text-slate-100 min-h-screen">
+    <div className="pt-28 pb-24 bg-transparent text-slate-100 min-h-screen">
       {/* Header */}
       <section className="relative py-16 overflow-hidden">
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-3/4 h-80 bg-brand-500/10 blur-3xl pointer-events-none" />
@@ -71,7 +71,7 @@ export default function WorkPage() {
                     fill
                     className="object-cover transition-transform duration-700 group-hover:scale-105"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#0E1424] via-transparent to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#262626] via-transparent to-transparent" />
                   <div className="absolute top-4 left-4">
                     <span className="px-3.5 py-1 rounded-full text-xs font-semibold bg-dark-surface/85 backdrop-blur-md text-brand-300 border border-brand-500/30">
                       {project.category}

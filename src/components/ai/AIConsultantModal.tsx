@@ -135,7 +135,7 @@ export default function AIConsultantModal({ isOpen, onClose }: AIConsultantModal
             className="w-full max-w-2xl h-[620px] max-h-[90vh] glass-card rounded-3xl border border-brand-500/30 flex flex-col overflow-hidden shadow-2xl relative"
           >
             {/* Header */}
-            <div className="p-4 sm:p-5 border-b border-slate-800 bg-[#0a0f1c]/90 flex items-center justify-between">
+            <div className="p-4 sm:p-5 border-b border-slate-800 bg-[#262626]/90 flex items-center justify-between">
               <div className="flex items-center gap-3">
                 <div className="w-10 h-10 rounded-2xl bg-brand-500/20 border border-brand-500/40 flex items-center justify-center text-brand-400">
                   <Sparkles size={20} className="animate-pulse" />
@@ -202,7 +202,7 @@ export default function AIConsultantModal({ isOpen, onClose }: AIConsultantModal
 
                     {/* In-Chat Lead Capture Form */}
                     {m.showLeadForm && !leadSubmitted && (
-                      <div className="mt-2 p-4 rounded-2xl bg-[#0e1628] border border-brand-500/30 shadow-lg">
+                      <div className="mt-2 p-4 rounded-2xl bg-[#30302E] border border-brand-500/30 shadow-lg">
                         <h4 className="text-xs uppercase font-bold text-brand-400 tracking-wider mb-2 flex items-center gap-1.5">
                           <CheckCircle2 size={14} /> Connect With Our Strategy Team
                         </h4>
@@ -268,7 +268,7 @@ export default function AIConsultantModal({ isOpen, onClose }: AIConsultantModal
             </div>
 
             {/* Input Bar */}
-            <div className="p-3.5 sm:p-4 border-t border-slate-800 bg-[#0a0f1c]/95">
+            <div className="p-3.5 sm:p-4 border-t border-slate-800 bg-[#262626]/95">
               <form
                 onSubmit={(e) => {
                   e.preventDefault();

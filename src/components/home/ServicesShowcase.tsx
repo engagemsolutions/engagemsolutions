@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
+import Illustration from '@/components/ui/Illustration';
 import { motion } from 'framer-motion';
 import {
   Bot,
@@ -39,7 +40,7 @@ export default function ServicesShowcase() {
   const otherServices = siteConfig.services.filter((s) => !s.featured);
 
   return (
-    <section className="py-24 bg-[#080C15] relative overflow-hidden" id="services">
+    <section className="py-24 bg-transparent relative overflow-hidden" id="services">
       {/* Subtle Glows */}
       <div className="absolute top-1/3 left-0 w-96 h-96 bg-brand-500/10 rounded-full blur-3xl pointer-events-none" />
       <div className="absolute bottom-10 right-0 w-96 h-96 bg-blue-600/10 rounded-full blur-3xl pointer-events-none" />
@@ -101,7 +102,7 @@ export default function ServicesShowcase() {
                     {/* Icon & Badge */}
                     <div className="flex items-center justify-between mb-6">
                       <div className="w-14 h-14 rounded-2xl bg-brand-500/15 border border-brand-500/30 flex items-center justify-center text-brand-400 group-hover:scale-110 group-hover:bg-brand-500 group-hover:text-dark-surface transition-all duration-300 shadow-glow-cyan">
-                        <IconComponent size={28} />
+                        <Illustration kind={service.iconName} className="w-12 h-12" />
                       </div>
                       <span className="text-[11px] font-bold uppercase tracking-wider px-3 py-1 rounded-full bg-slate-800 text-brand-300 border border-slate-700">
                         {service.tagline.split(' ')[0]} Focus
@@ -168,7 +169,7 @@ export default function ServicesShowcase() {
                 >
                   <div>
                     <div className="w-12 h-12 rounded-xl bg-brand-500/10 border border-brand-500/30 flex items-center justify-center text-brand-400 mb-4 group-hover:bg-brand-500 group-hover:text-dark-surface transition-colors">
-                      <IconComponent size={24} />
+                      <Illustration kind={service.iconName} className="w-10 h-10" />
                     </div>
                     <h3 className="text-lg font-bold text-white mb-2 group-hover:text-brand-300 transition-colors">
                       {service.title}

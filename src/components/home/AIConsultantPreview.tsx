@@ -15,7 +15,7 @@ export default function AIConsultantPreview({ onOpenAIConsultant }: AIConsultant
   ];
 
   return (
-    <section className="py-16 bg-[#060A14] relative overflow-hidden">
+    <section className="py-16 bg-transparent relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="relative rounded-3xl p-8 sm:p-12 glass-card border border-brand-500/30 overflow-hidden shadow-2xl">
           {/* Subtle Cyber Grid Glow */}
