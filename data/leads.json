@@ -1,0 +1,24 @@
+[
+  {
+    "id": "lead_1789758771645_rsv5kt2gx",
+    "name": "creativedev",
+    "email": "sharmeenfatima67@gmail.com",
+    "phone": "031222000000",
+    "message": "Captured via AI Consultant: General inquiry",
+    "service": "General Marketing Inquiry",
+    "source": "AI Business Consultant",
+    "createdAt": "2026-09-18T19:12:51.646Z",
+    "status": "New"
+  },
+  {
+    "id": "lead_1789758154131_ekcqggyzl",
+    "name": "Test Client",
+    "email": "client@example.com",
+    "phone": "+971500000000",
+    "message": "Testing automated verification",
+    "service": "AI Customer Care & Sales Agents",
+    "source": "Automated Verification Test",
+    "createdAt": "2026-09-18T19:02:34.131Z",
+    "status": "New"
+  }
+]
