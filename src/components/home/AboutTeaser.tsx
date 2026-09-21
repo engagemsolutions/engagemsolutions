@@ -19,7 +19,7 @@ export default function AboutTeaser() {
             transition={{ duration: 0.8 }}
             className="lg:col-span-6 relative"
           >
-            <div className="relative w-full h-[400px] sm:h-[480px] rounded-3xl overflow-hidden glass-card border border-slate-700/80 shadow-2xl group">
+            <div className="relative w-full aspect-[648/290] rounded-3xl overflow-hidden glass-card border border-slate-700/80 shadow-2xl group">
               <Image
                 src="/images/about-hourglass.jpg"
                 alt="About Engage - Hand holding hourglass"

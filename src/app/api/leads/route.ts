@@ -61,6 +61,10 @@ export async function POST(request: Request) {
 }
 
 export async function GET() {
+  // Never publish stored contact details through an unauthenticated endpoint.
+  if (process.env.NODE_ENV === 'production') {
+    return NextResponse.json({ error: 'Not found' }, { status: 404 });
+  }
   try {
     const leadsFilePath = path.join(process.cwd(), 'data', 'leads.json');
     if (!fs.existsSync(leadsFilePath)) {
