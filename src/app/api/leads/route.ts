@@ -1,9 +1,11 @@
 import { NextResponse } from 'next/server';
 import { randomUUID } from 'crypto';
 import { createClient } from '@supabase/supabase-js';
+import { Resend } from 'resend';
 
 const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL as string;
 const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY as string;
+const resend = new Resend(process.env.RESEND_API_KEY);
 
 function getClient() {
   return createClient(supabaseUrl, supabaseAnonKey);
@@ -40,6 +42,27 @@ export async function POST(request: Request) {
         { error: 'Failed to process lead submission.' },
         { status: 500 }
       );
+    }
+
+    try {
+      await resend.emails.send({
+        from: 'EngageM Solutions <info@engagemsolutions.com>',
+        to: ['info@engagemsolutions.com'],
+        subject: 'New Lead Submission',
+        html: `
+          <h2>New Lead from Website</h2>
+          <p><strong>Name:</strong> ${name || 'Anonymous Visitor'}</p>
+          <p><strong>Email:</strong> ${email || 'N/A'}</p>
+          <p><strong>Phone:</strong> ${phone || 'N/A'}</p>
+          <p><strong>Service:</strong> ${service || 'General Marketing Inquiry'}</p>
+          <p><strong>Source:</strong> ${source || 'Website Form'}</p>
+          <p><strong>Message:</strong></p>
+          <p>${message || 'No message provided.'}</p>
+        `,
+      });
+    } catch (emailError) {
+      console.error('Failed to send email notification:', emailError);
+      // We don't return an error here because the lead was successfully saved to the database.
     }
 
     return NextResponse.json({
