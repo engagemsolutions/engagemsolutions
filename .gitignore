@@ -4,6 +4,7 @@ out/
 build/
 .env*
 !.env.example
+/data/
 .DS_Store
 *.pem
 npm-debug.log*

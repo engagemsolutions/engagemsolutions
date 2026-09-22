@@ -1,6 +1,13 @@
 import { NextResponse } from 'next/server';
-import fs from 'fs';
-import path from 'path';
+import { randomUUID } from 'crypto';
+import { createClient } from '@supabase/supabase-js';
+
+const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL as string;
+const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY as string;
+
+function getClient() {
+  return createClient(supabaseUrl, supabaseAnonKey);
+}
 
 export async function POST(request: Request) {
   try {
@@ -14,42 +21,31 @@ export async function POST(request: Request) {
       );
     }
 
-    const newLead = {
-      id: `lead_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`,
+    const leadId = randomUUID();
+    const supabase = getClient();
+    const { error } = await supabase.from('leads').insert({
+      id: leadId,
       name: name || 'Anonymous Visitor',
       email: email || '',
       phone: phone || '',
       message: message || '',
       service: service || 'General Marketing Inquiry',
       source: source || 'Website Form',
-      createdAt: new Date().toISOString(),
       status: 'New',
-    };
+    });
 
-    // Store in local JSON database
-    const dataDir = path.join(process.cwd(), 'data');
-    if (!fs.existsSync(dataDir)) {
-      fs.mkdirSync(dataDir, { recursive: true });
+    if (error) {
+      console.error('Lead submission error:', error);
+      return NextResponse.json(
+        { error: 'Failed to process lead submission.' },
+        { status: 500 }
+      );
     }
-
-    const leadsFilePath = path.join(dataDir, 'leads.json');
-    let leads: any[] = [];
-    if (fs.existsSync(leadsFilePath)) {
-      try {
-        const fileContent = fs.readFileSync(leadsFilePath, 'utf-8');
-        leads = JSON.parse(fileContent);
-      } catch (err) {
-        leads = [];
-      }
-    }
-
-    leads.unshift(newLead);
-    fs.writeFileSync(leadsFilePath, JSON.stringify(leads, null, 2));
 
     return NextResponse.json({
       success: true,
       message: 'Lead received and recorded successfully.',
-      leadId: newLead.id,
+      leadId,
     });
   } catch (error: any) {
     console.error('Lead submission error:', error);
@@ -66,13 +62,16 @@ export async function GET() {
     return NextResponse.json({ error: 'Not found' }, { status: 404 });
   }
   try {
-    const leadsFilePath = path.join(process.cwd(), 'data', 'leads.json');
-    if (!fs.existsSync(leadsFilePath)) {
+    const supabase = getClient();
+    const { data, error } = await supabase
+      .from('leads')
+      .select('*')
+      .order('created_at', { ascending: false });
+
+    if (error) {
       return NextResponse.json({ leads: [] });
     }
-    const fileContent = fs.readFileSync(leadsFilePath, 'utf-8');
-    const leads = JSON.parse(fileContent);
-    return NextResponse.json({ leads, count: leads.length });
+    return NextResponse.json({ leads: data, count: data.length });
   } catch (error) {
     return NextResponse.json({ leads: [] });
   }
